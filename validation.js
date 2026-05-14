@@ -136,8 +136,18 @@ form.addEventListener('submit', (event) => {
     return;
   }
 
-  showAlert('Tu aplicación fue validada correctamente. Pronto te contactaremos.', 'success');
+  showAlert('Recibimos tu solicitud correctamente. Nos pondremos en contacto contigo pronto.', 'success');
   form.reset();
 
   Object.keys(fields).forEach((fieldName) => setError(fieldName, ''));
 });
+
+// Botón para borrar selección
+const resetBtn = document.getElementById('reset-form-btn');
+if (resetBtn) {
+  resetBtn.addEventListener('click', () => {
+    form.reset();
+    formAlert.classList.add('hidden');
+    Object.keys(fields).forEach((fieldName) => setError(fieldName, ''));
+  });
+}
