@@ -20,6 +20,26 @@
 			content="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=1400&q=80"
 		/>
 		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+		<style>
+			html {
+				scroll-behavior: auto;
+				scroll-snap-type: none;
+			}
+
+			@media (min-width: 1024px) {
+				html {
+					scroll-behavior: smooth;
+					scroll-snap-type: y mandatory;
+				}
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				html {
+					scroll-behavior: auto;
+					scroll-snap-type: none;
+				}
+			}
+		</style>
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
@@ -84,23 +104,23 @@
 			</nav>
 			<div id="mobile-menu" class="mx-auto hidden w-full max-w-6xl px-4 pb-4 sm:px-6 md:hidden" aria-label="Navegación móvil">
 				<div class="space-y-2 rounded-xl border border-stone-700 bg-stone-900/80 p-3">
-					<a href="#nosotros" class="block rounded-lg px-3 py-2 text-sm font-semibold text-stone-200 transition hover:bg-stone-800 hover:text-amber-300">Nosotros</a>
-					<a href="#beneficios" class="block rounded-lg px-3 py-2 text-sm font-semibold text-stone-200 transition hover:bg-stone-800 hover:text-amber-300">Beneficios</a>
-					<a href="#contacto" class="block rounded-lg px-3 py-2 text-sm font-semibold text-stone-200 transition hover:bg-stone-800 hover:text-amber-300">Contacto</a>
-					<a href="application.html" class="mt-2 block rounded-lg bg-amber-400 px-3 py-2 text-center text-sm font-bold text-stone-950 transition hover:bg-amber-300">Quiero información</a>
+					<a href="#nosotros" class="block rounded-lg px-3 py-2 text-sm font-semibold text-stone-200 transition hover:bg-stone-800 hover:text-amber-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300">Nosotros</a>
+					<a href="#beneficios" class="block rounded-lg px-3 py-2 text-sm font-semibold text-stone-200 transition hover:bg-stone-800 hover:text-amber-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300">Beneficios</a>
+					<a href="#contacto" class="block rounded-lg px-3 py-2 text-sm font-semibold text-stone-200 transition hover:bg-stone-800 hover:text-amber-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300">Contacto</a>
+					<a href="application.html" class="mt-2 block rounded-lg bg-amber-400 px-3 py-2 text-center text-sm font-bold text-stone-950 transition hover:bg-amber-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-100">Quiero información</a>
 				</div>
 			</div>
 		</header>
 
 		<main id="inicio">
-			<section class="relative overflow-hidden border-b border-stone-800">
+			<section id="nosotros" class="relative overflow-hidden border-b border-stone-800 snap-center snap-always scroll-mt-24">
 				<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(251,191,36,0.22),_transparent_46%),radial-gradient(circle_at_80%_20%,_rgba(248,113,113,0.15),_transparent_42%)]"></div>
-				<div class="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-6 py-16 md:grid-cols-2 md:py-24">
-					<div id="nosotros">
+				<div class="relative mx-auto grid w-full max-w-6xl items-center gap-8 px-6 py-10 md:min-h-[calc(92svh-5rem)] md:grid-cols-2 md:gap-10 md:py-14">
+					<div>
 						<p class="mb-4 inline-block rounded-full border border-amber-400/50 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-amber-300">
 							Desde 2008 en Medellín y Florida
 						</p>
-						<h1 class="text-4xl font-black leading-tight text-white md:text-6xl">
+						<h1 class="text-3xl font-black leading-tight text-white md:text-5xl">
 							Cocina a la brasa con
 							<span class="text-amber-400">consistencia, calidez y velocidad</span>
 						</h1>
@@ -124,14 +144,15 @@
 						<img
 							src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=1200&q=80"
 							alt="Hamburguesa gourmet a la parrilla servida en mesa de madera"
-							class="h-80 w-full rounded-xl object-cover md:h-[30rem]"
+							class="h-64 w-full rounded-xl object-cover md:h-[24rem]"
 						/>
 						<figcaption class="px-2 pt-3 text-sm text-stone-400">Hamburguesas y cortes a la brasa con sabor consistente en cada restaurante.</figcaption>
 					</figure>
 				</div>
 			</section>
 
-			<section id="beneficios" class="mx-auto w-full max-w-6xl px-6 py-16 md:py-20" aria-labelledby="beneficios-titulo">
+			<section id="beneficios" class="snap-center snap-always scroll-mt-24" aria-labelledby="beneficios-titulo">
+				<div class="mx-auto flex min-h-[calc(100svh-5rem)] w-full max-w-6xl flex-col justify-center px-6 py-12 md:py-16">
 				<div class="mb-10">
 					<h2 id="beneficios-titulo" class="text-3xl font-black text-white md:text-4xl">Beneficios clave de Brasaland</h2>
 					<p class="mt-3 max-w-3xl text-stone-300">
@@ -156,10 +177,11 @@
 						<p class="text-sm leading-relaxed text-stone-300">Digitalizamos procesos y decisiones con datos para responder mejor a clientes y tendencias del mercado.</p>
 					</article>
 				</div>
+				</div>
 			</section>
 
-			<section id="contacto" class="border-y border-stone-800 bg-stone-900/50">
-				<div class="mx-auto grid w-full max-w-6xl gap-10 px-6 py-16 md:grid-cols-2 md:py-20">
+			<section id="contacto" class="border-y border-stone-800 bg-stone-900/50 snap-center snap-always scroll-mt-24">
+				<div class="mx-auto grid min-h-[calc(100svh-5rem)] w-full max-w-6xl items-center gap-10 px-6 py-12 md:grid-cols-2 md:py-16">
 					<div>
 						<h2 class="text-3xl font-black text-white md:text-4xl">Conecta con Brasaland</h2>
 						<p class="mt-4 text-stone-300">
@@ -183,7 +205,7 @@
 			</section>
 		</main>
 
-		<footer class="border-t border-stone-800 bg-stone-950">
+		<footer id="pie-principal" class="border-t border-stone-800 bg-stone-950">
 			<div class="mx-auto grid w-full max-w-6xl gap-4 px-4 py-8 text-sm text-stone-400 sm:px-6 md:grid-cols-2 md:items-end">
 				<div class="space-y-1">
 					<p>© 2026 Brasaland. Todos los derechos reservados.</p>
@@ -199,21 +221,49 @@
 		<script>
 			const menuToggle = document.getElementById('menu-toggle');
 			const mobileMenu = document.getElementById('mobile-menu');
+			const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+
+			function closeMobileMenu() {
+				if (!menuToggle || !mobileMenu) return;
+				menuToggle.setAttribute('aria-expanded', 'false');
+				menuToggle.setAttribute('aria-label', 'Abrir menú de navegación');
+				mobileMenu.classList.add('hidden');
+			}
+
+			function openMobileMenu() {
+				if (!menuToggle || !mobileMenu) return;
+				menuToggle.setAttribute('aria-expanded', 'true');
+				menuToggle.setAttribute('aria-label', 'Cerrar menú de navegación');
+				mobileMenu.classList.remove('hidden');
+
+				if (mobileMenuLinks.length > 0) {
+					mobileMenuLinks[0].focus();
+				}
+			}
 
 			if (menuToggle && mobileMenu) {
 				menuToggle.addEventListener('click', () => {
 					const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-					menuToggle.setAttribute('aria-expanded', String(!isExpanded));
-					menuToggle.setAttribute('aria-label', isExpanded ? 'Abrir menú de navegación' : 'Cerrar menú de navegación');
-					mobileMenu.classList.toggle('hidden');
+					if (isExpanded) {
+						closeMobileMenu();
+						menuToggle.focus();
+					} else {
+						openMobileMenu();
+					}
 				});
 
-				mobileMenu.querySelectorAll('a').forEach((link) => {
+				mobileMenuLinks.forEach((link) => {
 					link.addEventListener('click', () => {
-						menuToggle.setAttribute('aria-expanded', 'false');
-						menuToggle.setAttribute('aria-label', 'Abrir menú de navegación');
-						mobileMenu.classList.add('hidden');
+						closeMobileMenu();
 					});
+				});
+
+				window.addEventListener('keydown', (event) => {
+					const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+					if (event.key === 'Escape' && isExpanded) {
+						closeMobileMenu();
+						menuToggle.focus();
+					}
 				});
 			}
 		</script>

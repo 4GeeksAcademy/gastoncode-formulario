@@ -114,6 +114,7 @@ function showAlert(message, type) {
   formAlert.className = `${base} ${variant}`;
   formAlert.textContent = message;
   formAlert.classList.remove('hidden');
+  formAlert.focus();
 }
 
 Object.keys(fields).forEach((fieldName) => {
